@@ -9,7 +9,27 @@ Tamamen statik: kurulum yok, bağımlılık yok. `index.html` dosyasını çift 
 |--------------|-----------------------------------------------------------|
 | `index.html` | Tüm metinler burada (mektup, anılar, sözler)              |
 | `styles.css` | Renkler, yazı tipleri, düzen                              |
-| `script.js`  | Düşen yapraklar, kaydırma animasyonu, sondaki soru        |
+| `script.js`  | Tüm animasyonlar (aşağıdaki listeye bak)                  |
+
+## Sayfadaki animasyonlar
+
+- Açılışta harf harf beliren ve hafifçe süzülen **Beren** yazısı
+- Daktilo gibi yazılan giriş cümleleri
+- Arka planda yavaşça sürüklenen ışık lekeleri + düşen gül yaprakları
+- Sayfanın üstünde okuma ilerleme çubuğu
+- Aşağı kaydırınca açılış bölümünde paralaks kayma
+- **Tıklanınca açılan zarf** → mektup katlanarak açılıyor, "Sevgili Beren," daktiloyla yazılıyor
+- Kelime kelime beliren bölüm başlıkları
+- Kayan yazı şeridi
+- Fareyle üzerine gelince 3B eğilen ve parlayan özür kartları
+- Görününce sıfırdan sayan gün/saat/dakika sayaçları
+- Kaydırdıkça dolan anı çizelgesi + nabız gibi atan noktalar
+- Çizilerek beliren söz tikleri
+- Kendi kendine çizilen ve atan kalp
+- İmleci takip eden ışık ve imlece yaklaşan "Evet" düğmesi
+- Sayfada herhangi bir yere tıklayınca uçuşan kalpler
+- "Peki, bir kahve" düğmesinde kalp yağmuru
+- `prefers-reduced-motion` açıksa hepsi kapanır (baş dönmesi yapmasın diye)
 
 ## Nasıl kişiselleştirilir
 
@@ -20,7 +40,9 @@ Tamamen statik: kurulum yok, bağımlılık yok. `index.html` dosyasını çift 
    `👇 KENDİ ANILARINIZLA DOLDUR` yorumları arasındaki `<li>` bloklarını düzenle.
    İstediğin kadar blok ekleyebilir veya silebilirsin.
 3. **Özür kartlarını** kendi durumuna göre yaz (`<section id="ozur">`).
-4. **Renkleri değiştir:** `styles.css` en üstteki `:root` bloğunda
+4. **Sayaç tarihi:** `index.html` içinde `<section ... id="sayac" data-since="2023-06-14">`
+   satırındaki tarihi tanıştığınız günle değiştir.
+5. **Renkleri değiştir:** `styles.css` en üstteki `:root` bloğunda
    `--rose`, `--gold`, `--bg` değerleriyle oynaman yeterli.
 
 ## Yayına alma
