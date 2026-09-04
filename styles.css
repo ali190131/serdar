@@ -1,0 +1,468 @@
+/* ============================================================
+   Beren — stil dosyası
+   Renkleri değiştirmek istersen sadece :root bloğuna dokun.
+   ============================================================ */
+
+:root {
+  --bg:          #120a12;
+  --bg-2:        #1c0f1a;
+  --ink:         #f6ecf2;
+  --ink-soft:    #d6bfcd;
+  --ink-faint:   #9c8494;
+  --rose:        #e78ba6;
+  --rose-deep:   #b3517a;
+  --gold:        #e9c48a;
+  --line:        rgba(231, 139, 166, 0.22);
+  --card:        rgba(255, 255, 255, 0.035);
+  --serif:       "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --sans:        "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --maxw:        720px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  /* sayfa kısa kalırsa altta beyaz şerit oluşmasın */
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1100px 700px at 50% -12%, #3a1730 0%, transparent 62%),
+    radial-gradient(800px 600px at 92% 78%, #2a1026 0%, transparent 60%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 55%, var(--bg) 100%);
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── yaprak canvas ───────────────────────────────────────── */
+#petals {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+header, main, footer { position: relative; z-index: 1; }
+
+/* ── açılış ──────────────────────────────────────────────── */
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6rem 1.25rem 4rem;
+  position: relative;
+}
+
+.hero-glow {
+  position: absolute;
+  width: min(70vw, 520px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(231,139,166,.20), transparent 68%);
+  filter: blur(10px);
+  animation: breathe 7s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1);    opacity: .85; }
+  50%      { transform: scale(1.14); opacity: 1;   }
+}
+
+.hero-kicker {
+  font-size: .74rem;
+  letter-spacing: .34em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin: 0 0 1.6rem;
+}
+
+.hero-name {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(4.2rem, 20vw, 11rem);
+  line-height: .95;
+  margin: 0;
+  letter-spacing: .04em;
+}
+
+/* Degrade her harfin kendi üstünde: dönüştürülen bir alt öğede
+   background-clip:text ebeveynden miras alınmaz. */
+.hero-name span {
+  display: inline-block;
+  background: linear-gradient(180deg, #ffffff 8%, var(--rose) 62%, var(--rose-deep) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  opacity: 0;
+  transform: translateY(28px) rotate(4deg);
+  animation: letterIn .95s cubic-bezier(.22,1,.36,1) forwards;
+}
+.hero-name span:nth-child(1) { animation-delay: .15s; }
+.hero-name span:nth-child(2) { animation-delay: .28s; }
+.hero-name span:nth-child(3) { animation-delay: .41s; }
+.hero-name span:nth-child(4) { animation-delay: .54s; }
+.hero-name span:nth-child(5) { animation-delay: .67s; }
+
+@keyframes letterIn {
+  to { opacity: 1; transform: translateY(0) rotate(0); }
+}
+
+.hero-sub {
+  font-family: var(--serif);
+  font-size: clamp(1.05rem, 2.6vw, 1.4rem);
+  font-style: italic;
+  color: var(--ink-soft);
+  max-width: 30ch;
+  margin: 1.8rem auto 0;
+  line-height: 1.6;
+}
+
+.scroll-cue {
+  margin-top: 3.4rem;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .7rem;
+  text-decoration: none;
+  color: var(--ink-faint);
+  font-size: .68rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  transition: color .3s;
+}
+.scroll-cue:hover { color: var(--rose); }
+
+.scroll-line {
+  width: 1px;
+  height: 46px;
+  background: linear-gradient(180deg, transparent, var(--rose));
+  animation: drop 2.2s ease-in-out infinite;
+}
+@keyframes drop {
+  0%, 100% { transform: scaleY(.4); transform-origin: top; opacity: .5; }
+  50%      { transform: scaleY(1);  transform-origin: top; opacity: 1;  }
+}
+
+/* ── bölümler ────────────────────────────────────────────── */
+.section {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: clamp(4.5rem, 12vw, 8rem) 1.5rem;
+}
+
+.eyebrow {
+  font-size: .7rem;
+  letter-spacing: .34em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 .8rem;
+}
+
+.section-title {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(2rem, 6.5vw, 3.1rem);
+  line-height: 1.15;
+  margin: 0 0 .9rem;
+  letter-spacing: .01em;
+}
+
+.section-lead {
+  color: var(--ink-faint);
+  font-size: .98rem;
+  margin: 0 0 2.8rem;
+  max-width: 46ch;
+}
+
+/* ── mektup ──────────────────────────────────────────────── */
+.letter {
+  position: relative;
+  padding: clamp(1.8rem, 5vw, 3rem);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.015));
+  box-shadow: 0 30px 70px -40px rgba(0,0,0,.9);
+}
+
+.letter::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(233,196,138,.16);
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.letter p {
+  font-family: var(--serif);
+  font-size: clamp(1.08rem, 2.6vw, 1.28rem);
+  line-height: 1.85;
+  color: var(--ink-soft);
+  margin: 0 0 1.35rem;
+}
+
+.letter .salute {
+  font-size: clamp(1.4rem, 4vw, 1.8rem);
+  font-style: italic;
+  color: var(--rose);
+  margin-bottom: 1.6rem;
+}
+
+.letter .sign {
+  text-align: right;
+  font-style: italic;
+  color: var(--gold);
+  margin: 2.2rem 0 0;
+}
+
+/* ── kartlar ─────────────────────────────────────────────── */
+.cards {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+}
+
+.card {
+  position: relative;
+  padding: 1.9rem 1.5rem 1.6rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
+  transition: transform .4s cubic-bezier(.22,1,.36,1), border-color .4s, background .4s;
+}
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(231,139,166,.5);
+  background: rgba(255,255,255,.06);
+}
+
+.card-num {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  color: var(--gold);
+  opacity: .55;
+}
+
+.card h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.4rem;
+  margin: .5rem 0 .6rem;
+}
+
+.card p {
+  margin: 0;
+  font-size: .92rem;
+  color: var(--ink-faint);
+  line-height: 1.7;
+}
+
+/* ── zaman çizelgesi ─────────────────────────────────────── */
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 1.9rem;
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: .5rem;
+  bottom: .5rem;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, var(--line) 12%, var(--line) 88%, transparent);
+}
+
+.tl-item {
+  position: relative;
+  padding: 0 0 2.6rem;
+}
+.tl-item:last-child { padding-bottom: 0; }
+
+.tl-dot {
+  position: absolute;
+  left: -1.9rem;
+  top: .55rem;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--rose);
+  box-shadow: 0 0 0 4px rgba(231,139,166,.14);
+}
+
+.tl-date {
+  font-size: .7rem;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 .35rem;
+}
+
+.tl-item h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.45rem;
+  margin: 0 0 .5rem;
+}
+
+.tl-item p:last-child {
+  margin: 0;
+  color: var(--ink-faint);
+  font-size: .95rem;
+}
+
+/* ── sözler ──────────────────────────────────────────────── */
+.promises {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.promises li {
+  display: flex;
+  gap: .9rem;
+  align-items: flex-start;
+  padding: 1.05rem 0;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  font-family: var(--serif);
+  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+  color: var(--ink-soft);
+}
+.promises li:last-child { border-bottom: none; }
+
+.promises span {
+  color: var(--rose);
+  font-size: .95rem;
+  line-height: 1.9;
+  flex: none;
+}
+
+/* ── soru ────────────────────────────────────────────────── */
+.ask-section { padding-bottom: clamp(5rem, 14vw, 9rem); }
+
+.ask-card {
+  text-align: center;
+  padding: clamp(2.2rem, 7vw, 3.6rem) clamp(1.4rem, 5vw, 3rem);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background:
+    radial-gradient(600px 260px at 50% 0%, rgba(231,139,166,.14), transparent 70%),
+    rgba(255,255,255,.035);
+  box-shadow: 0 40px 90px -50px rgba(0,0,0,.95);
+}
+
+.ask-title {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(1.8rem, 6vw, 2.8rem);
+  line-height: 1.2;
+  margin: .4rem 0 .7rem;
+}
+
+.ask-lead {
+  color: var(--ink-faint);
+  margin: 0 0 2.2rem;
+}
+
+.ask-buttons {
+  display: flex;
+  gap: .9rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  min-height: 54px;
+}
+
+.btn {
+  font-family: var(--sans);
+  font-size: .95rem;
+  font-weight: 400;
+  padding: .85rem 1.7rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform .28s cubic-bezier(.22,1,.36,1), box-shadow .28s, background .28s, color .28s;
+}
+
+.btn-yes {
+  border: none;
+  color: #34101f;
+  background: linear-gradient(135deg, #f7b4c6, var(--rose) 55%, var(--rose-deep));
+  box-shadow: 0 12px 30px -12px rgba(231,139,166,.75);
+}
+.btn-yes:hover { transform: translateY(-3px) scale(1.03); }
+
+.btn-no {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink-faint);
+}
+.btn-no:hover { color: var(--ink-soft); }
+
+.ask-note {
+  margin: 1.9rem 0 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(1.1rem, 3vw, 1.35rem);
+  color: var(--rose);
+  animation: fadeUp .7s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── alt bilgi ───────────────────────────────────────────── */
+.footer {
+  text-align: center;
+  padding: 3.5rem 1.5rem 4.5rem;
+  border-top: 1px solid rgba(255,255,255,.06);
+  color: var(--ink-faint);
+  font-size: .88rem;
+}
+.footer p { margin: .35rem 0; }
+.footer-heart { font-size: 1.5rem; margin-bottom: .8rem !important; }
+.footer-small { font-size: .78rem; opacity: .65; }
+
+/* ── kaydırma animasyonu ─────────────────────────────────── */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1);
+}
+
+.js .reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* hero içindekiler gecikmeli girsin */
+.hero .reveal { transition-delay: .8s; }
+.hero .hero-sub { transition-delay: .95s; }
+.hero .scroll-cue { transition-delay: 1.15s; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+  .js .reveal { opacity: 1; transform: none; }
+  .hero-name span { opacity: 1; transform: none; }
+}

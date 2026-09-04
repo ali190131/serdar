@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<!-- JS varsa kaydırma animasyonları açılır; JS yoksa her şey görünür kalır. -->
+<script>document.documentElement.classList.add('js');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Beren — Bir Özür, Bir Umut</title>
+<meta name="description" content="Beren için yazılmış küçük bir mektup." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,300;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌹</text></svg>" />
+</head>
+<body>
+
+<canvas id="petals" aria-hidden="true"></canvas>
+
+<!-- ══════════ AÇILIŞ ══════════ -->
+<header class="hero" id="top">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <p class="hero-kicker reveal">bu sayfa tek bir kişi için yazıldı</p>
+  <h1 class="hero-name" aria-label="Beren">
+    <span>B</span><span>e</span><span>r</span><span>e</span><span>n</span>
+  </h1>
+  <p class="hero-sub reveal">Söyleyemediğim her şeyi buraya bıraktım.<br />Acelen yoksa, sonuna kadar okur musun?</p>
+  <a class="scroll-cue reveal" href="#mektup" aria-label="Aşağı kaydır">
+    <span class="scroll-line"></span>
+    <span class="scroll-text">devam et</span>
+  </a>
+</header>
+
+<main>
+
+  <!-- ══════════ MEKTUP ══════════ -->
+  <section class="section letter-section" id="mektup">
+    <p class="eyebrow reveal">bir</p>
+    <h2 class="section-title reveal">Mektup</h2>
+    <article class="letter reveal">
+      <p class="salute">Sevgili Beren,</p>
+      <!-- 👇 BURAYI KENDİ CÜMLELERİNLE DEĞİŞTİR -->
+      <p>Bu satırları yazarken elim titriyor, çünkü senin okuyacağını bilmek beni hem korkutuyor hem de umutlandırıyor. Sana bir sürü şey söylemek istedim ama her seferinde kelimeler boğazımda düğümlendi. Bu yüzden buraya yazdım; kaçmasınlar diye.</p>
+      <p>Seni kaybettiğim gün anladım ki, alıştığım şey senin varlığın değilmiş — seninle olan ben'miş. Sen yokken kendimi de eksik buldum. Kahvenin nasıl içildiğini, sabahların nasıl güzel olduğunu, susmanın bile huzurlu olabileceğini senden öğrenmiştim.</p>
+      <p>Hatalarımı savunmaya gelmedim. Sadece gördüğümü, anladığımı ve değiştiğimi söylemeye geldim. Belki geç kaldım, belki de tam zamanıdır. Karar senin — ama seni sevdiğimi bilmeden gitmeni istemedim.</p>
+      <!-- 👆 BURAYI KENDİ CÜMLELERİNLE DEĞİŞTİR -->
+      <p class="sign">— seni hâlâ seven biri</p>
+    </article>
+  </section>
+
+  <!-- ══════════ ÖZÜR ══════════ -->
+  <section class="section" id="ozur">
+    <p class="eyebrow reveal">iki</p>
+    <h2 class="section-title reveal">Neyi Yanlış Yaptığımı Biliyorum</h2>
+    <p class="section-lead reveal">Bahane değil. Sadece fark ettiklerim.</p>
+    <div class="cards">
+      <article class="card reveal">
+        <span class="card-num">01</span>
+        <h3>Dinlemedim</h3>
+        <p>Sen anlatırken cevabımı hazırlıyordum. Oysa tek istediğin duyulmaktı. Artık önce susmayı, sonra konuşmayı öğreniyorum.</p>
+      </article>
+      <article class="card reveal">
+        <span class="card-num">02</span>
+        <h3>Küçük şeyleri unuttum</h3>
+        <p>Büyük sözler verip küçük anları kaçırdım. Oysa bir ilişki büyük sözlerden değil, hatırlanan küçük şeylerden kuruluyormuş.</p>
+      </article>
+      <article class="card reveal">
+        <span class="card-num">03</span>
+        <h3>Gururu seçtim</h3>
+        <p>Haklı olmak, mutlu olmaktan daha önemli gelmişti. Bugün olsa aynı tartışmada ilk ben sarılırdım.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ══════════ ANILAR ══════════ -->
+  <section class="section" id="anilar">
+    <p class="eyebrow reveal">üç</p>
+    <h2 class="section-title reveal">Unutmadıklarım</h2>
+    <p class="section-lead reveal">Sen hatırlamıyor olabilirsin. Ben hepsini hatırlıyorum.</p>
+    <ol class="timeline">
+      <!-- 👇 KENDİ ANILARINIZLA DOLDUR -->
+      <li class="tl-item reveal">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <p class="tl-date">İlk konuşma</p>
+        <h3>Ne diyeceğimi şaşırdığım gün</h3>
+        <p>Yanına gitmeden önce cümleyi kaç kere prova ettiğimi bilseydin gülerdin. Sonra hepsi uçtu gitti, sadece adını söyleyebildim.</p>
+      </li>
+      <li class="tl-item reveal">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <p class="tl-date">O uzun gece</p>
+        <h3>Saat kaç olduğunu unuttuğumuz sohbet</h3>
+        <p>Sabaha karşı hâlâ konuşuyorduk. O gece anladım: seninle vakit hızlanıyor ama hayat yavaşlıyor.</p>
+      </li>
+      <li class="tl-item reveal">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <p class="tl-date">Sıradan bir salı</p>
+        <h3>Hiçbir şey olmadı, her şey güzeldi</h3>
+        <p>Özel bir gün değildi. Sadece yanımdaydın. En çok o günü özlüyorum.</p>
+      </li>
+      <li class="tl-item reveal">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <p class="tl-date">Ve bugün</p>
+        <h3>Bu sayfayı yazdığım gün</h3>
+        <p>Seni geri kazanmak için değil, sana hak ettiğin sözleri söylemek için oturdum. Gerisi sana kalmış.</p>
+      </li>
+      <!-- 👆 KENDİ ANILARINIZLA DOLDUR -->
+    </ol>
+  </section>
+
+  <!-- ══════════ SÖZLER ══════════ -->
+  <section class="section" id="sozler">
+    <p class="eyebrow reveal">dört</p>
+    <h2 class="section-title reveal">Bu Sefer Sözlerim</h2>
+    <p class="section-lead reveal">Büyük değil, tutabileceğim kadar.</p>
+    <ul class="promises">
+      <li class="reveal"><span aria-hidden="true">✓</span> Kızgınken konuşmayacağım, sakinken kaçmayacağım.</li>
+      <li class="reveal"><span aria-hidden="true">✓</span> "Nasılsın" diye sorduğumda cevabını gerçekten bekleyeceğim.</li>
+      <li class="reveal"><span aria-hidden="true">✓</span> Seni değiştirmeye değil, anlamaya çalışacağım.</li>
+      <li class="reveal"><span aria-hidden="true">✓</span> Özür dilemek için geç kalmayacağım.</li>
+      <li class="reveal"><span aria-hidden="true">✓</span> Sana seçtiğimi her gün yeniden hatırlatacağım.</li>
+    </ul>
+  </section>
+
+  <!-- ══════════ SORU ══════════ -->
+  <section class="section ask-section" id="soru">
+    <div class="ask-card reveal">
+      <p class="eyebrow">beş</p>
+      <h2 class="ask-title">Bana bir kahvelik şans verir misin?</h2>
+      <p class="ask-lead">Söz, sadece dinleyeceğim.</p>
+      <div class="ask-buttons">
+        <button class="btn btn-yes" id="yesBtn" type="button">Peki, bir kahve 🤍</button>
+        <button class="btn btn-no" id="noBtn" type="button">Emin değilim…</button>
+      </div>
+      <p class="ask-note" id="askNote" hidden></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p class="footer-heart" aria-hidden="true">🤍</p>
+  <p>Beren için yapıldı.</p>
+  <p class="footer-small">Ne cevap verirsen ver, sana teşekkür ederim.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
