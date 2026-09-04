@@ -208,7 +208,7 @@ function yaz(el, metin, hiz, bitince) {
 /* ── 7) Sayaçlar ─────────────────────────────────────────── */
 function sayacBaslat(el) {
   const bolum = el.closest('[data-since]');
-  const baslangic = new Date((bolum && bolum.dataset.since) || '2024-06-24T17:00');
+  const baslangic = new Date((bolum && bolum.dataset.since) || '2026-06-24T17:00');
   const gecenMs = Math.max(0, Date.now() - baslangic.getTime());
 
   // saat de belli olduğu için gün/saat/dakika tek tek, tam hesaplanıyor
