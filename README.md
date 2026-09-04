@@ -43,8 +43,8 @@ Tamamen statik: kurulum yok, bağımlılık yok. `index.html` dosyasını çift 
    `👇 KENDİ ANILARINIZLA DOLDUR` yorumları arasındaki `<li>` bloklarını düzenle.
    İstediğin kadar blok ekleyebilir veya silebilirsin.
 3. **Özür kartlarını** kendi durumuna göre yaz (`<section id="ozur">`).
-4. **Sayaç tarihi:** `index.html` içinde `<section ... id="sayac" data-since="2023-06-14">`
-   satırındaki tarihi tanıştığınız günle değiştir.
+4. **Sayaç tarihi:** `index.html` içinde `<section ... id="sayac" data-since="2024-06-24T17:00">`
+   satırındaki tarih/saat tanıştığınız an. Yılı değiştirmen yeterli.
 5. **Renkleri değiştir:** `styles.css` en üstteki `:root` bloğunda
    `--rose`, `--gold`, `--bg` değerleriyle oynaman yeterli.
 

@@ -208,11 +208,15 @@ function yaz(el, metin, hiz, bitince) {
 /* ── 7) Sayaçlar ─────────────────────────────────────────── */
 function sayacBaslat(el) {
   const bolum = el.closest('[data-since]');
-  const baslangic = new Date((bolum && bolum.dataset.since) || '2023-06-14');
+  const baslangic = new Date((bolum && bolum.dataset.since) || '2024-06-24T17:00');
   const gecenMs = Math.max(0, Date.now() - baslangic.getTime());
-  const gun = Math.floor(gecenMs / 86400000);
 
-  const hedefler = { days: gun, hours: gun * 24, minutes: gun * 24 * 60 };
+  // saat de belli olduğu için gün/saat/dakika tek tek, tam hesaplanıyor
+  const hedefler = {
+    days:    Math.floor(gecenMs / 86400000),
+    hours:   Math.floor(gecenMs / 3600000),
+    minutes: Math.floor(gecenMs / 60000)
+  };
   const hedef = hedefler[el.dataset.count] ?? 0;
 
   if (azHareket) { el.textContent = hedef.toLocaleString('tr-TR'); return; }
