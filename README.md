@@ -8,11 +8,14 @@ Tamamen statik: kurulum yok, bağımlılık yok. `index.html` dosyasını çift 
 | Dosya        | Ne işe yarar                                              |
 |--------------|-----------------------------------------------------------|
 | `index.html` | Tüm metinler burada (mektup, anılar, sözler)              |
+| `assets/`    | Fotoğraf (`beren.jpg`) — değiştirmek için üzerine yaz     |
 | `styles.css` | Renkler, yazı tipleri, düzen                              |
 | `script.js`  | Tüm animasyonlar (aşağıdaki listeye bak)                  |
 
 ## Sayfadaki animasyonlar
 
+- Polaroid fotoğraf: banyodan çıkıyormuş gibi netleşiyor, üzerinden ışık geçiyor,
+  fareyle üzerine gelince düzelip 3B eğiliyor
 - Açılışta harf harf beliren ve hafifçe süzülen **Beren** yazısı
 - Daktilo gibi yazılan giriş cümleleri
 - Arka planda yavaşça sürüklenen ışık lekeleri + düşen gül yaprakları
